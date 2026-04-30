@@ -16,5 +16,15 @@ namespace SimplePaint
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trbLineWidth_Scroll(object sender, EventArgs e)
+        {
+
+        }
     }
 }
