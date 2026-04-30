@@ -43,6 +43,8 @@ namespace SimplePaint
 
             picCanvas.Image = canvasBitmap;      // 그린 그림을 화면(PictureBox)에 표시
 
+            picCanvas.SizeMode = PictureBoxSizeMode.StretchImage;
+
             // 마우스 이벤트 연결
             picCanvas.MouseDown += PicCanvas_MouseDown;
             picCanvas.MouseMove += PicCanvas_MouseMove;
@@ -91,13 +93,16 @@ namespace SimplePaint
         private void PicCanvas_MouseDown(object sender, MouseEventArgs e)
         {
             isDrawing = true;             // 드래그 시작
-            startPoint = e.Location;      // 시작점 저장
+            // 💡 핵심: 마우스 좌표를 확대 배율로 나누어 '실제 도화지 좌표'로 변환
+            startPoint = new Point((int)(e.X / zoomFactor), (int)(e.Y / zoomFactor));
         }
 
         private void PicCanvas_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDrawing) return;       // 그림 그리기와 상관없는 마우스 움직임은 무시
-            endPoint = e.Location;        // 현재 위치 갱신
+
+            // 💡 핵심: 현재 위치도 도화지 좌표로 변환하여 갱신
+            endPoint = new Point((int)(e.X / zoomFactor), (int)(e.Y / zoomFactor));
 
             // picCanvas를 다시 그려라(Paint 이벤트를 발생시킨다)
             picCanvas.Invalidate();       // 화면 다시 그리기(미리보기)
@@ -107,7 +112,9 @@ namespace SimplePaint
         {
             if (!isDrawing) return;     // 그림 그리기와 상관없는 마우스 움직임은 무시
             isDrawing = false;          // 드래그 종료
-            endPoint = e.Location;      // 끝점 저장
+
+            // 💡 핵심: 끝점도 도화지 좌표로 변환
+            endPoint = new Point((int)(e.X / zoomFactor), (int)(e.Y / zoomFactor));
 
             // 실제 비트맵에 도형 그리기(확정)
             using (Pen pen = new Pen(currentColor, currentLineWidth))
@@ -121,6 +128,9 @@ namespace SimplePaint
         private void PicCanvas_Paint(object sender, PaintEventArgs e)
         {
             if (!isDrawing) return;
+
+            // 💡 핵심: 화면에 그려지는 미리보기 선도 확대 배율에 맞춰 같이 커지도록 크기 변환(Scale) 적용
+            e.Graphics.ScaleTransform(zoomFactor, zoomFactor);
 
             // 점선펜(미리보기용)
             using (Pen previewPen = new Pen(currentColor, currentLineWidth))
