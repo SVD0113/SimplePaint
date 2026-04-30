@@ -40,11 +40,17 @@
             this.picCanvas = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.trbImgSize = new System.Windows.Forms.TrackBar();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbLineWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trbImgSize)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAppName
@@ -52,7 +58,7 @@
             this.lblAppName.AutoSize = true;
             this.lblAppName.Font = new System.Drawing.Font("굴림", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblAppName.ForeColor = System.Drawing.Color.Fuchsia;
-            this.lblAppName.Location = new System.Drawing.Point(33, 9);
+            this.lblAppName.Location = new System.Drawing.Point(12, 2);
             this.lblAppName.Name = "lblAppName";
             this.lblAppName.Size = new System.Drawing.Size(354, 56);
             this.lblAppName.TabIndex = 0;
@@ -64,7 +70,7 @@
             this.groupBox1.Controls.Add(this.btnRectangle);
             this.groupBox1.Controls.Add(this.btnLine);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 76);
+            this.groupBox1.Location = new System.Drawing.Point(6, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(278, 100);
             this.groupBox1.TabIndex = 2;
@@ -118,9 +124,9 @@
             "Red 빨강",
             "Blue 파랑",
             "Green 녹색"});
-            this.cmbColor.Location = new System.Drawing.Point(6, 74);
+            this.cmbColor.Location = new System.Drawing.Point(0, 74);
             this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(138, 24);
+            this.cmbColor.Size = new System.Drawing.Size(151, 24);
             this.cmbColor.TabIndex = 0;
             // 
             // trbLineWidth
@@ -135,7 +141,7 @@
             // 
             this.btnOpenFile.BackColor = System.Drawing.Color.Yellow;
             this.btnOpenFile.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnOpenFile.Location = new System.Drawing.Point(632, 123);
+            this.btnOpenFile.Location = new System.Drawing.Point(637, 2);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(75, 46);
             this.btnOpenFile.TabIndex = 6;
@@ -147,7 +153,7 @@
             // 
             this.btnSaveFile.BackColor = System.Drawing.Color.Cyan;
             this.btnSaveFile.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSaveFile.Location = new System.Drawing.Point(713, 123);
+            this.btnSaveFile.Location = new System.Drawing.Point(718, 2);
             this.btnSaveFile.Name = "btnSaveFile";
             this.btnSaveFile.Size = new System.Drawing.Size(75, 46);
             this.btnSaveFile.TabIndex = 7;
@@ -157,9 +163,9 @@
             // 
             // picCanvas
             // 
-            this.picCanvas.Location = new System.Drawing.Point(12, 181);
+            this.picCanvas.Location = new System.Drawing.Point(3, 3);
             this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(776, 298);
+            this.picCanvas.Size = new System.Drawing.Size(784, 314);
             this.picCanvas.TabIndex = 3;
             this.picCanvas.TabStop = false;
             this.picCanvas.Click += new System.EventHandler(this.picCanvas_Click);
@@ -168,9 +174,9 @@
             // 
             this.groupBox2.Controls.Add(this.cmbColor);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(296, 74);
+            this.groupBox2.Location = new System.Drawing.Point(290, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(150, 101);
+            this.groupBox2.Size = new System.Drawing.Size(157, 101);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "색 선택";
@@ -179,23 +185,52 @@
             // 
             this.groupBox3.Controls.Add(this.trbLineWidth);
             this.groupBox3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox3.Location = new System.Drawing.Point(452, 77);
+            this.groupBox3.Location = new System.Drawing.Point(453, 61);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(174, 100);
+            this.groupBox3.Size = new System.Drawing.Size(161, 100);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "선 두께";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.trbImgSize);
+            this.groupBox4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox4.Location = new System.Drawing.Point(620, 61);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(173, 100);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "이미지 사이즈";
+            // 
+            // trbImgSize
+            // 
+            this.trbImgSize.Location = new System.Drawing.Point(6, 49);
+            this.trbImgSize.Name = "trbImgSize";
+            this.trbImgSize.Size = new System.Drawing.Size(162, 45);
+            this.trbImgSize.TabIndex = 1;
+            this.trbImgSize.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.picCanvas);
+            this.panel1.Location = new System.Drawing.Point(6, 168);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(790, 320);
+            this.panel1.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 491);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSaveFile);
             this.Controls.Add(this.btnOpenFile);
-            this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAppName);
             this.Name = "Form1";
@@ -207,6 +242,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trbImgSize)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +265,9 @@
         private System.Windows.Forms.Button btnSaveFile;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TrackBar trbImgSize;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

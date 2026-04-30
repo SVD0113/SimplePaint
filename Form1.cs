@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimplePaint
 {
@@ -27,6 +28,8 @@ namespace SimplePaint
         private ToolType currentTool = ToolType.Line;  // 현재 선택된 도형
         private Color currentColor = Color.Black;      // 현재 색상
         private int currentLineWidth = 2;              // 현재 선 두께
+
+        private float zoomFactor = 1.0f; // 확대/축소 배율 변수
 
 
         public Form1()
@@ -62,6 +65,11 @@ namespace SimplePaint
             trbLineWidth.Maximum = 10;   // 최대값
             trbLineWidth.Value = 2;
             trbLineWidth.ValueChanged += trbLineWidth_ValueChanged;
+
+            // 이미지 사이즈 트랙바 (trackBar1) 설정
+            trbImgSize.Minimum = 1;   // 최소 0.1배 (10%)
+            trbImgSize.Maximum = 50;  // 최대 5.0배 (500%)
+            trbImgSize.Value = 10;    // 기본 1.0배 (100%)
 
         }
 
@@ -192,8 +200,52 @@ namespace SimplePaint
 
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "이미지 파일|*.png;*.jpg;*.jpeg;*.bmp|모든 파일|*.*";
+                ofd.Title = "이미지 파일 열기";
 
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // 1. 외부 이미지 읽어오기
+                        Image loadedImg = Image.FromFile(ofd.FileName);
+
+                        // 기존 캔버스 자원 안전하게 해제
+                        if (canvasGraphics != null) canvasGraphics.Dispose();
+                        if (canvasBitmap != null) canvasBitmap.Dispose();
+
+                        // 캔버스로 삼기 위해 불러온 이미지를 새로운 비트맵으로 복사 (그리기 가능하도록)
+                        canvasBitmap = new Bitmap(loadedImg);
+                        canvasGraphics = Graphics.FromImage(canvasBitmap);
+
+                        // PictureBox에 적용
+                        picCanvas.Image = canvasBitmap;
+
+                        // 2. 이미지 크기에 맞춰 캔버스(PictureBox) 크기 조정
+                        picCanvas.Width = canvasBitmap.Width;
+                        picCanvas.Height = canvasBitmap.Height;
+
+                        // 3. 이미지가 클 경우 스크롤바 생성 
+                        // (PictureBox를 감싸고 있는 부모 Panel의 AutoScroll 기능을 켜줌)
+                        if (picCanvas.Parent is Panel panel)
+                        {
+                            panel.AutoScroll = true;
+                        }
+
+                        // 모드를 늘리기(StretchImage)로 변경하고 배율 1.0으로 초기화 (확대/축소 대비용)
+                        picCanvas.SizeMode = PictureBoxSizeMode.StretchImage;
+                        zoomFactor = 1.0f;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("이미지를 여는 중 오류가 발생했습니다: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
+
 
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
@@ -233,6 +285,20 @@ namespace SimplePaint
                     }
                 }
             }
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            // 캔버스(비트맵)가 아직 없으면 무시
+            if (canvasBitmap == null) return;
+
+            // 1. 트랙바의 값(1~50)을 실수형 배율(0.1f ~ 5.0f)로 변환
+            zoomFactor = trbImgSize.Value / 10.0f;
+
+            // 2. 픽처박스 크기를 원본 비트맵 크기 * 배율로 조정
+            // (Panel의 AutoScroll이 켜져 있으므로, 픽처박스가 커지면 자동으로 스크롤바가 생깁니다)
+            picCanvas.Width = (int)(canvasBitmap.Width * zoomFactor);
+            picCanvas.Height = (int)(canvasBitmap.Height * zoomFactor);
         }
     }
 }
