@@ -37,12 +37,12 @@
             this.trbLineWidth = new System.Windows.Forms.TrackBar();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.btnSaveFile = new System.Windows.Forms.Button();
-            this.PicCanvas = new System.Windows.Forms.PictureBox();
+            this.picCanvas = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbLineWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicCanvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +141,7 @@
             this.btnOpenFile.TabIndex = 6;
             this.btnOpenFile.Text = "열기";
             this.btnOpenFile.UseVisualStyleBackColor = false;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // btnSaveFile
             // 
@@ -152,14 +153,16 @@
             this.btnSaveFile.TabIndex = 7;
             this.btnSaveFile.Text = "저장";
             this.btnSaveFile.UseVisualStyleBackColor = false;
+            this.btnSaveFile.Click += new System.EventHandler(this.btnSaveFile_Click);
             // 
-            // PicCanvas
+            // picCanvas
             // 
-            this.PicCanvas.Location = new System.Drawing.Point(12, 181);
-            this.PicCanvas.Name = "PicCanvas";
-            this.PicCanvas.Size = new System.Drawing.Size(776, 298);
-            this.PicCanvas.TabIndex = 3;
-            this.PicCanvas.TabStop = false;
+            this.picCanvas.Location = new System.Drawing.Point(12, 181);
+            this.picCanvas.Name = "picCanvas";
+            this.picCanvas.Size = new System.Drawing.Size(776, 298);
+            this.picCanvas.TabIndex = 3;
+            this.picCanvas.TabStop = false;
+            this.picCanvas.Click += new System.EventHandler(this.picCanvas_Click);
             // 
             // groupBox2
             // 
@@ -192,7 +195,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSaveFile);
             this.Controls.Add(this.btnOpenFile);
-            this.Controls.Add(this.PicCanvas);
+            this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAppName);
             this.Name = "Form1";
@@ -200,7 +203,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trbLineWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicCanvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -216,7 +219,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.TrackBar trbLineWidth;
-        private System.Windows.Forms.PictureBox PicCanvas;
+        private System.Windows.Forms.PictureBox picCanvas;
         private System.Windows.Forms.Button btnRectangle;
         private System.Windows.Forms.Button btnCircle;
         private System.Windows.Forms.Button btnOpenFile;
