@@ -166,6 +166,7 @@
             this.picCanvas.Location = new System.Drawing.Point(3, 3);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(784, 314);
+            this.picCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picCanvas.TabIndex = 3;
             this.picCanvas.TabStop = false;
             this.picCanvas.Click += new System.EventHandler(this.picCanvas_Click);
