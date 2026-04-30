@@ -30,14 +30,14 @@
         {
             this.lblAppName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCircle = new System.Windows.Forms.Button();
+            this.btnRectangle = new System.Windows.Forms.Button();
+            this.btnLine = new System.Windows.Forms.Button();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.trbLineWidth = new System.Windows.Forms.TrackBar();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.PicCanvas = new System.Windows.Forms.PictureBox();
-            this.btnCircle = new System.Windows.Forms.Button();
-            this.btnRectangle = new System.Windows.Forms.Button();
-            this.btnLine = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -64,72 +64,21 @@
             this.groupBox1.Controls.Add(this.btnRectangle);
             this.groupBox1.Controls.Add(this.btnLine);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(35, 76);
+            this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(255, 100);
+            this.groupBox1.Size = new System.Drawing.Size(278, 100);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "도형선택";
-            // 
-            // cmbColor
-            // 
-            this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Items.AddRange(new object[] {
-            "Black 검정",
-            "Red 빨강",
-            "Blue 파랑",
-            "Green 녹색"});
-            this.cmbColor.Location = new System.Drawing.Point(6, 74);
-            this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(129, 24);
-            this.cmbColor.TabIndex = 0;
-            // 
-            // trbLineWidth
-            // 
-            this.trbLineWidth.Location = new System.Drawing.Point(6, 49);
-            this.trbLineWidth.Name = "trbLineWidth";
-            this.trbLineWidth.Size = new System.Drawing.Size(154, 45);
-            this.trbLineWidth.TabIndex = 1;
-            this.trbLineWidth.Scroll += new System.EventHandler(this.trbLineWidth_Scroll);
-            // 
-            // btnOpenFile
-            // 
-            this.btnOpenFile.BackColor = System.Drawing.Color.Yellow;
-            this.btnOpenFile.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnOpenFile.Location = new System.Drawing.Point(605, 123);
-            this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(75, 39);
-            this.btnOpenFile.TabIndex = 6;
-            this.btnOpenFile.Text = "열기";
-            this.btnOpenFile.UseVisualStyleBackColor = false;
-            // 
-            // btnSaveFile
-            // 
-            this.btnSaveFile.BackColor = System.Drawing.Color.Cyan;
-            this.btnSaveFile.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSaveFile.Location = new System.Drawing.Point(686, 123);
-            this.btnSaveFile.Name = "btnSaveFile";
-            this.btnSaveFile.Size = new System.Drawing.Size(75, 39);
-            this.btnSaveFile.TabIndex = 7;
-            this.btnSaveFile.Text = "저장";
-            this.btnSaveFile.UseVisualStyleBackColor = false;
-            // 
-            // PicCanvas
-            // 
-            this.PicCanvas.Location = new System.Drawing.Point(35, 181);
-            this.PicCanvas.Name = "PicCanvas";
-            this.PicCanvas.Size = new System.Drawing.Size(726, 281);
-            this.PicCanvas.TabIndex = 3;
-            this.PicCanvas.TabStop = false;
             // 
             // btnCircle
             // 
             this.btnCircle.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnCircle.Image = global::SimplePaint.Properties.Resources.KakaoTalk_20260430_100205471_01;
             this.btnCircle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCircle.Location = new System.Drawing.Point(177, 29);
+            this.btnCircle.Location = new System.Drawing.Point(188, 30);
             this.btnCircle.Name = "btnCircle";
-            this.btnCircle.Size = new System.Drawing.Size(75, 71);
+            this.btnCircle.Size = new System.Drawing.Size(84, 71);
             this.btnCircle.TabIndex = 5;
             this.btnCircle.Text = "원";
             this.btnCircle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -140,7 +89,7 @@
             this.btnRectangle.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRectangle.Image = global::SimplePaint.Properties.Resources.KakaoTalk_20260430_100205471;
             this.btnRectangle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRectangle.Location = new System.Drawing.Point(86, 29);
+            this.btnRectangle.Location = new System.Drawing.Point(97, 29);
             this.btnRectangle.Name = "btnRectangle";
             this.btnRectangle.Size = new System.Drawing.Size(85, 71);
             this.btnRectangle.TabIndex = 4;
@@ -155,19 +104,70 @@
             this.btnLine.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnLine.Location = new System.Drawing.Point(6, 29);
             this.btnLine.Name = "btnLine";
-            this.btnLine.Size = new System.Drawing.Size(74, 71);
+            this.btnLine.Size = new System.Drawing.Size(85, 71);
             this.btnLine.TabIndex = 1;
             this.btnLine.Text = "직선";
             this.btnLine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLine.UseVisualStyleBackColor = true;
             // 
+            // cmbColor
+            // 
+            this.cmbColor.FormattingEnabled = true;
+            this.cmbColor.Items.AddRange(new object[] {
+            "Black 검정",
+            "Red 빨강",
+            "Blue 파랑",
+            "Green 녹색"});
+            this.cmbColor.Location = new System.Drawing.Point(6, 74);
+            this.cmbColor.Name = "cmbColor";
+            this.cmbColor.Size = new System.Drawing.Size(138, 24);
+            this.cmbColor.TabIndex = 0;
+            // 
+            // trbLineWidth
+            // 
+            this.trbLineWidth.Location = new System.Drawing.Point(6, 49);
+            this.trbLineWidth.Name = "trbLineWidth";
+            this.trbLineWidth.Size = new System.Drawing.Size(162, 45);
+            this.trbLineWidth.TabIndex = 1;
+            this.trbLineWidth.Scroll += new System.EventHandler(this.trbLineWidth_Scroll);
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.BackColor = System.Drawing.Color.Yellow;
+            this.btnOpenFile.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnOpenFile.Location = new System.Drawing.Point(632, 123);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(75, 46);
+            this.btnOpenFile.TabIndex = 6;
+            this.btnOpenFile.Text = "열기";
+            this.btnOpenFile.UseVisualStyleBackColor = false;
+            // 
+            // btnSaveFile
+            // 
+            this.btnSaveFile.BackColor = System.Drawing.Color.Cyan;
+            this.btnSaveFile.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSaveFile.Location = new System.Drawing.Point(713, 123);
+            this.btnSaveFile.Name = "btnSaveFile";
+            this.btnSaveFile.Size = new System.Drawing.Size(75, 46);
+            this.btnSaveFile.TabIndex = 7;
+            this.btnSaveFile.Text = "저장";
+            this.btnSaveFile.UseVisualStyleBackColor = false;
+            // 
+            // PicCanvas
+            // 
+            this.PicCanvas.Location = new System.Drawing.Point(12, 181);
+            this.PicCanvas.Name = "PicCanvas";
+            this.PicCanvas.Size = new System.Drawing.Size(776, 298);
+            this.PicCanvas.TabIndex = 3;
+            this.PicCanvas.TabStop = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cmbColor);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(293, 76);
+            this.groupBox2.Location = new System.Drawing.Point(296, 74);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(141, 101);
+            this.groupBox2.Size = new System.Drawing.Size(150, 101);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "색 선택";
@@ -176,9 +176,9 @@
             // 
             this.groupBox3.Controls.Add(this.trbLineWidth);
             this.groupBox3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox3.Location = new System.Drawing.Point(437, 75);
+            this.groupBox3.Location = new System.Drawing.Point(452, 77);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(162, 100);
+            this.groupBox3.Size = new System.Drawing.Size(174, 100);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "선 두께";
